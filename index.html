@@ -1,0 +1,924 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style><meta name="description" content="Fiches de révision simples, exercices corrigés et vidéos courtes pour les élèves de Terminale D au Cameroun."><meta property="og:title" content="Atelier Cortex Nova"><meta property="og:description" content="Les maths deviennent claires : fiches, exercices corrigés et vidéos courtes."><meta property="og:type" content="website"></head><body>
+<title>Atelier Cortex Nova</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Concept : une agence d'éducation, sobre et rassurante. Fond bleu nuit, noir profond pour les sections de respiration, blanc pour le texte, jaune or pour l'action, bleu clair pour les détails. Une seule typographie d'affichage, beaucoup d'espace, bordures fines. */
+:root {
+  color-scheme: dark;
+  --navy: #0A1426;
+  --navy-2: #0F1C36;
+  --black: #050911;
+  --white: #F6F8FC;
+  --muted: #A5B3CB;
+  --gold: #EBBA3B;
+  --gold-deep: #C99A1E;
+  --on-gold: #0A1426;
+  --sky: #8FCBFF;
+  --line: rgba(246, 248, 252, 0.12);
+  --line-strong: rgba(246, 248, 252, 0.24);
+  --glass: rgba(246, 248, 252, 0.04);
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+body {
+  background-color: var(--navy);
+  background-image: radial-gradient(900px 520px at 85% -8%, rgba(143, 203, 255, 0.14), transparent 70%),
+                    radial-gradient(700px 480px at -5% 30%, rgba(235, 186, 59, 0.07), transparent 70%);
+  background-repeat: no-repeat;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--navy); z-index: 40; }
+h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; line-height: 1.08; text-wrap: balance; letter-spacing: -0.02em; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 6px; }
+
+.wrap {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.section { padding-block: clamp(56px, 9vw, 112px); scroll-margin-top: 84px; }
+.section-dark { background: var(--black); border-block: 1px solid var(--line); }
+.eyebrow { font-family: var(--font-mono); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--sky); }
+h2 { font-size: clamp(1.9rem, 4.4vw, 3rem); font-weight: 700; margin-top: 14px; }
+.lead { color: var(--muted); max-width: 58ch; margin-top: 16px; }
+.gold { color: var(--gold); }
+.head { max-width: 760px; }
+
+/* Boutons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--font-body); font-weight: 700; font-size: 1rem; text-decoration: none; cursor: pointer;
+  min-height: 50px; padding: 12px 24px; border-radius: 999px; border: 1.5px solid transparent;
+  transition: transform 0.2s var(--ease), background-color 0.2s var(--ease), border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn-gold { background: var(--gold); color: var(--on-gold); box-shadow: 0 8px 28px rgba(235, 186, 59, 0.25); }
+.btn-gold:hover { background: #F5C94F; box-shadow: 0 12px 34px rgba(235, 186, 59, 0.34); }
+.btn-line { background: transparent; color: var(--white); border-color: var(--line-strong); }
+.btn-line:hover { border-color: var(--sky); color: var(--sky); }
+.btn-white { background: var(--white); color: var(--navy); }
+.btn-white svg { color: #1FA855; }
+.btn-white:hover { background: #fff; }
+.btn-sm { min-height: 42px; padding: 8px 18px; font-size: 0.95rem; }
+
+/* En-tête */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: rgba(10, 20, 38, 0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; min-width: 0; }
+.brand svg { width: 38px; height: 38px; flex: none; }
+.brand-name { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; line-height: 1.1; }
+.brand-name small { display: block; font-family: var(--font-mono); font-weight: 400; font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+.nav { display: none; gap: 2px; align-items: center; }
+.nav a { text-decoration: none; font-weight: 600; font-size: 0.95rem; color: var(--muted); padding: 8px 12px; border-radius: 999px; transition: color 0.2s var(--ease), background-color 0.2s var(--ease); }
+.nav a:hover { color: var(--white); background: var(--glass); }
+.bar-actions { display: flex; align-items: center; gap: 10px; }
+.menu-btn { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 46px; height: 46px; padding: 0 12px; background: transparent; border: 1.5px solid var(--line-strong); border-radius: 50%; cursor: pointer; }
+.menu-btn span { display: block; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.2s var(--ease), opacity 0.2s; }
+.menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.drawer { border-top: 1px solid var(--line); background: var(--navy); }
+.drawer nav { display: grid; padding-block: 12px 20px; }
+.drawer a { text-decoration: none; padding: 14px 4px; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; border-bottom: 1px solid var(--line); }
+.bar-wa { display: none; }
+@media (min-width: 900px) {
+  .nav { display: flex; }
+  .menu-btn, .drawer { display: none !important; }
+  .bar-wa { display: inline-flex; }
+}
+
+/* Hero */
+.hero { padding-block: clamp(40px, 7vw, 96px) clamp(56px, 9vw, 112px); }
+.hero-grid { display: grid; gap: clamp(36px, 6vw, 72px); grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); align-items: center; }
+@media (max-width: 960px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
+.badge { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 10px; border: 1px solid var(--line-strong); border-radius: 999px; font-size: 0.88rem; color: var(--muted); }
+.badge i { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(235, 186, 59, 0.2); }
+.hero h1 { font-size: clamp(2.5rem, 6.8vw, 4.6rem); font-weight: 800; margin-top: 22px; letter-spacing: -0.03em; }
+.hero .lead { font-size: 1.15rem; margin-top: 22px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.proofs { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 32px; padding: 0; list-style: none; color: var(--muted); font-size: 0.95rem; }
+.proofs li { display: flex; align-items: center; gap: 8px; }
+.proofs svg { width: 18px; height: 18px; color: var(--gold); flex: none; }
+
+/* Carte exercice */
+.card-demo { background: linear-gradient(180deg, rgba(246,248,252,0.07), rgba(246,248,252,0.03)); border: 1px solid var(--line-strong); border-radius: 22px; padding: clamp(20px, 3vw, 30px); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35); min-width: 0; }
+.demo-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.demo-dots { display: flex; gap: 6px; }
+.demo-dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }
+.demo-dots i:first-child { background: var(--gold); }
+.progress { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
+.problem { font-family: var(--font-mono); font-size: clamp(1.1rem, 3.2vw, 1.4rem); margin-top: 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; color: var(--white); }
+.lim { display: inline-flex; flex-direction: column; align-items: center; line-height: 1.1; }
+.lim small { font-size: 0.62em; color: var(--sky); }
+.ask { margin-top: 10px; color: var(--muted); font-size: 0.98rem; }
+.steps { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 12px; }
+.step { padding: 14px 16px; border: 1px solid var(--line); border-radius: 14px; background: var(--glass); }
+.step-tag { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sky); }
+.step h4 { font-size: 1.05rem; font-weight: 700; margin-top: 4px; letter-spacing: -0.01em; }
+.step p { margin-top: 4px; font-size: 0.96rem; color: var(--muted); }
+.eq { display: inline-block; margin-top: 8px; max-width: 100%; overflow-x: auto; font-family: var(--font-mono); font-size: 0.95rem; padding: 6px 12px; border-radius: 8px; background: var(--black); color: var(--gold); }
+.result { margin-top: 14px; padding: 16px 18px; border-radius: 14px; background: var(--gold); color: var(--on-gold); }
+.result span { font-family: var(--font-mono); font-size: 0.92rem; }
+.result strong { display: block; font-family: var(--font-display); font-size: 1.25rem; margin-top: 2px; }
+.demo-actions { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* Bande de confiance */
+.trust { display: grid; gap: 0; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 20px; background: var(--glass); }
+@media (max-width: 960px) { .trust { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .trust { grid-template-columns: minmax(0, 1fr); } }
+.trust-item { padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.trust-item:nth-child(4n) { border-right: 0; }
+.trust-item:nth-child(n+5) { border-bottom: 0; }
+@media (max-width: 960px) {
+  .trust-item:nth-child(4n) { border-right: 1px solid var(--line); }
+  .trust-item:nth-child(2n) { border-right: 0; }
+  .trust-item:nth-child(n+3) { border-bottom: 0; }
+  .trust-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 520px) {
+  .trust-item, .trust-item:nth-child(n) { border-right: 0; border-bottom: 1px solid var(--line); }
+  .trust-item:last-child { border-bottom: 0; }
+}
+.trust-item svg { width: 30px; height: 30px; color: var(--gold); }
+.trust-item h3 { font-size: 1.1rem; font-weight: 700; margin-top: 14px; letter-spacing: -0.01em; }
+.trust-item p { margin-top: 6px; color: var(--muted); font-size: 0.95rem; line-height: 1.55; }
+
+/* Contenus */
+.contents { display: grid; gap: 20px; margin-top: 44px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) { .contents { grid-template-columns: minmax(0, 1fr); } }
+.content-card { padding: 30px 28px; border: 1px solid var(--line); border-radius: 22px; background: var(--glass); transition: border-color 0.25s var(--ease), transform 0.25s var(--ease); }
+.content-card:hover { border-color: rgba(143, 203, 255, 0.5); transform: translateY(-3px); }
+.content-card svg { width: 46px; height: 46px; color: var(--sky); }
+.content-card h3 { font-size: 1.4rem; font-weight: 700; margin-top: 22px; }
+.content-card p { margin-top: 10px; color: var(--muted); }
+
+/* Programme */
+.prog { display: grid; gap: clamp(32px, 6vw, 80px); grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); align-items: start; }
+@media (max-width: 900px) { .prog { grid-template-columns: minmax(0, 1fr); } }
+.chap { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-strong); }
+.chap li { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.chap .name { font-weight: 600; font-size: 1.05rem; min-width: 0; }
+.pill { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 5px 11px; border-radius: 999px; white-space: nowrap; flex: none; }
+.pill-free { background: var(--gold); color: var(--on-gold); font-weight: 500; }
+.pill-prem { border: 1px solid var(--line-strong); color: var(--muted); }
+.small-note { margin-top: 20px; font-size: 0.92rem; color: var(--muted); }
+
+/* Étapes */
+.how { display: grid; gap: 20px; margin: 44px 0 0; padding: 0; list-style: none; grid-template-columns: repeat(4, minmax(0, 1fr)); counter-reset: s; }
+@media (max-width: 960px) { .how { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .how { grid-template-columns: minmax(0, 1fr); } }
+.how li { counter-increment: s; padding-top: 18px; border-top: 1px solid var(--line-strong); }
+.how li::before { content: "0" counter(s); font-family: var(--font-mono); color: var(--gold); font-size: 0.9rem; }
+.how h3 { font-size: 1.2rem; font-weight: 700; margin-top: 8px; }
+.how p { margin-top: 6px; color: var(--muted); font-size: 0.97rem; }
+
+/* Offres */
+.offers { display: grid; gap: 18px; margin-top: 56px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1060px) { .offers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .offers { grid-template-columns: minmax(0, 1fr); } }
+.bonus { margin-top: 22px; padding: 18px 22px; border: 1px solid rgba(235, 186, 59, 0.45); border-radius: 16px; background: rgba(235, 186, 59, 0.06); color: var(--muted); }
+.bonus strong { color: var(--gold); }
+.offer { display: flex; flex-direction: column; gap: 16px; padding: clamp(24px, 3vw, 36px); border: 1px solid var(--line); border-radius: 24px; background: var(--glass); min-width: 0; }
+.offer-premium { border-color: rgba(235, 186, 59, 0.6); background: linear-gradient(180deg, rgba(235,186,59,0.10), rgba(235,186,59,0.02)); }
+.offer h3 { font-size: 1.45rem; font-weight: 700; }
+.price { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; letter-spacing: -0.02em; }
+.price small { display: block; font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-top: 2px; }
+.offer ul { margin: 0 0 8px; padding: 0; list-style: none; display: grid; gap: 10px; flex: 1; }
+.offer li { position: relative; padding-left: 28px; }
+.offer li::before { content: ""; position: absolute; left: 2px; top: 0.45em; width: 14px; height: 8px; border-left: 2.5px solid var(--gold); border-bottom: 2.5px solid var(--gold); transform: rotate(-45deg); }
+
+/* Témoignages */
+.quotes { display: grid; gap: 20px; margin-top: 44px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 900px) { .quotes { grid-template-columns: minmax(0, 1fr); } }
+.quote { padding: 28px; border: 1px dashed var(--line-strong); border-radius: 22px; display: flex; flex-direction: column; gap: 16px; min-height: 190px; min-width: 0; }
+.quote svg { width: 30px; height: 30px; color: var(--gold); opacity: 0.7; }
+.quote p { color: var(--muted); font-size: 1rem; flex: 1; }
+.quote .who { font-family: var(--font-mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--sky); }
+.promise { margin-top: 24px; padding: clamp(20px, 3vw, 28px); border-radius: 20px; background: var(--glass); border: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center; justify-content: space-between; }
+.promise p { max-width: 62ch; color: var(--muted); min-width: 0; }
+.promise strong { color: var(--white); }
+
+/* FAQ */
+.faq-grid { display: grid; gap: clamp(32px, 6vw, 72px); grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); align-items: start; }
+@media (max-width: 900px) { .faq-grid { grid-template-columns: minmax(0, 1fr); } }
+.faq { border-top: 1px solid var(--line-strong); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 0; font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; font-family: var(--font-body); font-size: 1.2rem; font-weight: 400; color: var(--gold); transition: transform 0.2s var(--ease), background-color 0.2s; }
+.faq details[open] summary::after { content: "−"; background: var(--gold); color: var(--on-gold); border-color: var(--gold); }
+.faq summary:hover { color: var(--gold); }
+.faq .answer { padding: 0 50px 22px 0; color: var(--muted); max-width: 64ch; }
+
+/* Feuille de route */
+.road { display: grid; gap: 20px; margin-top: 44px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 800px) { .road { grid-template-columns: minmax(0, 1fr); } }
+.stop { padding: 24px; border: 1px solid var(--line); border-radius: 20px; background: var(--glass); }
+.stop.now { border-color: rgba(235, 186, 59, 0.55); }
+.stop h3 { font-size: 1.25rem; font-weight: 700; margin-top: 10px; }
+.stop p { margin-top: 6px; color: var(--muted); font-size: 0.97rem; }
+.stop .eyebrow { color: var(--sky); }
+.stop.now .eyebrow { color: var(--gold); }
+
+/* Contact */
+.contact { position: relative; overflow: hidden; border: 1px solid var(--line-strong); border-radius: 28px; padding: clamp(28px, 6vw, 72px); background: radial-gradient(600px 300px at 90% 0%, rgba(143,203,255,0.2), transparent 70%), var(--navy-2); display: grid; gap: 28px; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); align-items: center; }
+@media (max-width: 800px) { .contact { grid-template-columns: minmax(0, 1fr); } }
+.contact h2 { font-size: clamp(2rem, 5vw, 3.2rem); }
+.contact-cta { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.contact-cta .num { font-family: var(--font-mono); font-size: 1.05rem; color: var(--white); user-select: all; }
+.contact-cta p { font-size: 0.92rem; color: var(--muted); }
+
+/* Pied de page */
+.foot { padding-block: 36px 44px; border-top: 1px solid var(--line); }
+.foot-in { display: flex; flex-wrap: wrap; gap: 18px 36px; align-items: center; justify-content: space-between; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.foot nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; padding: 6px 0; }
+.foot nav a:hover { color: var(--white); }
+.foot small { color: var(--muted); }
+
+/* Bouton WhatsApp flottant, utile sur téléphone */
+.float-wa { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 35; width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; background: #1FA855; color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.45); transition: transform 0.2s var(--ease); }
+.float-wa:hover { transform: scale(1.06); }
+.float-wa svg { width: 30px; height: 30px; }
+
+/* Page des chapitres */
+.back { display: inline-block; color: var(--sky); text-decoration: none; font-weight: 600; padding: 8px 0; }
+.back:hover { text-decoration: underline; }
+.tiers { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.tier { flex: 1 1 190px; padding: 16px 20px; border: 1px solid var(--line-strong); border-radius: 18px; background: var(--glass); display: flex; flex-direction: column; gap: 2px; }
+.tier b { font-family: var(--font-display); font-size: 1.1rem; }
+.tier span { color: var(--muted); font-size: 0.95rem; }
+.tier-gold { border-color: rgba(235, 186, 59, 0.6); background: rgba(235, 186, 59, 0.07); }
+.tier-gold span { color: var(--gold); }
+.mode-hint { margin-top: 16px; min-height: 1.6em; color: var(--gold); font-weight: 600; }
+.chap-free { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: 24px; padding: 18px 22px; border: 1px dashed var(--line-strong); border-radius: 18px; }
+.chap-num { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-family: var(--font-display); font-weight: 800; background: var(--gold); color: var(--on-gold); flex: none; }
+.chap-info { flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; }
+.chap-info b { font-family: var(--font-display); font-size: 1.1rem; }
+.chap-info small { color: var(--muted); font-size: 0.92rem; line-height: 1.45; }
+.chap-tools { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 20px; margin-top: 36px; }
+.tools-btns { display: flex; gap: 8px; }
+.link-btn { background: none; border: 0; color: var(--sky); font: inherit; font-weight: 600; cursor: pointer; padding: 8px 10px; border-radius: 8px; }
+.link-btn:hover { background: var(--glass); }
+.chap-grid { display: grid; gap: 14px; margin-top: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 760px) { .chap-grid { grid-template-columns: minmax(0, 1fr); } }
+.cc { position: relative; display: flex; align-items: flex-start; gap: 16px; padding: 18px 20px; border: 1.5px solid var(--line); border-radius: 18px; background: var(--glass); cursor: pointer; min-width: 0; transition: border-color 0.2s var(--ease), background-color 0.2s var(--ease), transform 0.2s var(--ease); }
+.cc:hover { border-color: rgba(143, 203, 255, 0.55); }
+.cc.sel { border-color: var(--gold); background: rgba(235, 186, 59, 0.09); }
+.cc input { position: absolute; opacity: 0; pointer-events: none; }
+.cc input:focus-visible ~ .box { outline: 3px solid var(--sky); outline-offset: 3px; }
+.cc .box { width: 28px; height: 28px; flex: none; border: 2px solid var(--line-strong); border-radius: 8px; display: grid; place-items: center; margin-top: 2px; transition: background-color 0.15s, border-color 0.15s; }
+.cc.sel .box { background: var(--gold); border-color: var(--gold); }
+.cc.sel .box::after { content: ""; width: 12px; height: 7px; border-left: 3px solid var(--on-gold); border-bottom: 3px solid var(--on-gold); transform: rotate(-45deg) translate(1px, -1px); }
+.cc .info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.cc .info b { font-family: var(--font-display); font-size: 1.1rem; line-height: 1.2; }
+.cc .info small { color: var(--muted); font-size: 0.92rem; line-height: 1.45; }
+.cc .st { align-self: flex-start; font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--muted); white-space: nowrap; flex: none; }
+.cc .st.ok { border-color: var(--gold); color: var(--gold); }
+#view-chapitres { padding-bottom: 150px; }
+.afterpay { margin-top: 28px; padding: 22px 24px; border: 1.5px solid rgba(235, 186, 59, 0.6); border-radius: 20px; background: rgba(235, 186, 59, 0.07); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; }
+.afterpay p { max-width: 58ch; color: var(--muted); min-width: 0; }
+.afterpay strong { color: var(--white); }
+.orderbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 36; background: rgba(5, 9, 17, 0.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-top: 1px solid var(--line-strong); padding-block: 14px calc(14px + env(safe-area-inset-bottom, 0px)); }
+.orderbar-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.ob-sum { display: flex; flex-direction: column; min-width: 0; }
+.ob-count { color: var(--muted); font-size: 0.92rem; }
+.ob-total { font-family: var(--font-display); font-weight: 800; font-size: 1.9rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.ob-tip { color: var(--gold); font-size: 0.88rem; min-height: 1.3em; }
+.orderbar .btn { flex: 0 1 auto; }
+.orderbar .btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
+@media (max-width: 560px) {
+  .orderbar { padding-block: 10px calc(10px + env(safe-area-inset-bottom, 0px)); }
+  .orderbar-in { flex-wrap: nowrap; gap: 12px; }
+  .ob-count { font-size: 0.8rem; }
+  .ob-total { font-size: 1.35rem; }
+  .ob-tip { display: none; }
+  .orderbar .btn { flex: 0 0 auto; padding: 12px 20px; font-size: 0.95rem; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#accueil" aria-label="Atelier Cortex Nova, accueil" data-track="logo">
+      <svg viewBox="0 0 48 48" role="img" aria-hidden="true">
+        <rect x="1" y="1" width="46" height="46" rx="13" fill="#050911" stroke="#EBBA3B" stroke-width="1.8"/>
+        <path d="M8 35 C16 35 18 16 24 16 S32 35 40 35" fill="none" stroke="#8FCBFF" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="8" cy="35" r="2.3" fill="#8FCBFF"/>
+        <circle cx="40" cy="35" r="2.3" fill="#8FCBFF"/>
+        <path d="M24 6 L26.4 12.6 L33 15 L26.4 17.4 L24 24 L21.6 17.4 L15 15 L21.6 12.6 Z" fill="#EBBA3B"/>
+      </svg>
+      <span class="brand-name">Atelier Cortex Nova<small>Éducation · Cameroun</small></span>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#contenus" data-track="nav-contenus">Contenus</a>
+      <a href="#programme" data-track="nav-programme">Programme</a>
+      <a href="#offres" data-track="nav-offres">Offres</a>
+      <a href="#chapitres" data-track="nav-chapitres">Mes chapitres</a>
+      <a href="#temoignages" data-track="nav-temoignages">Témoignages</a>
+      <a href="#faq" data-track="nav-faq">Questions</a>
+      <a href="#contact" data-track="nav-contact">Contact</a>
+    </nav>
+    <div class="bar-actions">
+      <a class="btn btn-gold btn-sm bar-wa" data-wa="Bonjour Atelier Cortex Nova, je voudrais des informations." data-track="wa-header" href="https://wa.me/" target="_blank" rel="noopener">Écrire sur WhatsApp</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="drawer" id="drawer" hidden>
+    <div class="wrap">
+      <nav aria-label="Menu mobile">
+        <a href="#contenus">Contenus</a>
+        <a href="#programme">Programme</a>
+        <a href="#offres">Offres</a>
+        <a href="#chapitres">Mes chapitres</a>
+        <a href="#temoignages">Témoignages</a>
+        <a href="#faq">Questions fréquentes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="view-home">
+  <section class="hero" id="accueil">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="badge"><i></i>Premier lancement : Maths, Terminale D</span>
+        <h1>Les maths deviennent <span class="gold">claires</span>. Pour de bon.</h1>
+        <p class="lead">Fiches de révision simples, exercices corrigés pas à pas et vidéos courtes. Tu comprends la méthode, tu la refais seul, et tu abordes ton examen avec confiance.</p>
+        <div class="cta-row">
+          <a class="btn btn-gold" data-wa="Bonjour, je veux essayer l'échantillon gratuit de Maths Terminale D." data-track="hero-gratuit" href="https://wa.me/" target="_blank" rel="noopener">Essayer gratuitement</a>
+          <a class="btn btn-line" href="#programme" data-track="hero-programme">Voir le programme</a>
+        </div>
+        <ul class="proofs">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4.5 4.5L19 7"/></svg>Un chapitre offert</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4.5 4.5L19 7"/></svg>Aucun paiement avant d'avoir essayé</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4.5 4.5L19 7"/></svg>Mobile Money</li>
+        </ul>
+      </div>
+
+      <div class="card-demo" aria-labelledby="demo-title">
+        <div class="demo-top">
+          <span class="eyebrow" id="demo-title">Exercice d'essai · Limites</span>
+          <span class="progress" id="progress" aria-live="polite"></span>
+        </div>
+        <div class="problem">
+          <span class="lim"><span>lim</span><small>x → +∞</small></span>
+          <span>(x² − 3x) = ?</span>
+        </div>
+        <p class="ask">Que se passe-t-il quand x devient très grand ?</p>
+        <ol class="steps" id="steps" aria-live="polite">
+          <li class="step">
+            <span class="step-tag">Étape 1</span>
+            <h4>Remplacer directement ne marche pas</h4>
+            <p>On obtient +∞ − ∞. C'est une forme indéterminée : on ne peut pas conclure tout de suite.</p>
+          </li>
+          <li class="step">
+            <span class="step-tag">Étape 2</span>
+            <h4>Factorise par le terme le plus fort</h4>
+            <p>Le plus fort, c'est x². On l'isole :</p>
+            <span class="eq">x² − 3x = x²(1 − 3/x)</span>
+          </li>
+          <li class="step">
+            <span class="step-tag">Étape 3</span>
+            <h4>Regarde chaque morceau</h4>
+            <p>Quand x devient énorme, 3/x se rapproche de 0, donc (1 − 3/x) se rapproche de 1. Et x² tend vers +∞.</p>
+          </li>
+        </ol>
+        <div class="result" id="result" hidden>
+          <span>lim (x² − 3x) = +∞</span>
+          <strong>Waouh, ce n'était pas si compliqué !</strong>
+        </div>
+        <div class="demo-actions">
+          <button type="button" class="btn btn-gold btn-sm" id="next" data-track="demo-next">Étape suivante</button>
+          <button type="button" class="btn btn-line btn-sm" id="reset" data-track="demo-reset" hidden>Refaire l'exercice</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap" style="margin-top: clamp(40px, 6vw, 72px)">
+      <div class="trust">
+        <div class="trust-item">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3l11 4v8c0 7-4.5 11.5-11 14C9.5 26.500 5 22 5 15V7z"/><path d="M11 16l4 4 6-8"/></svg>
+          <h3>Essaie avant de payer</h3>
+          <p>Un chapitre complet est offert. Tu juges la qualité toi-même.</p>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h22v15H14l-6 5v-5H5z"/><path d="M11 13h10M11 17h6"/></svg>
+          <h3>Une vraie personne répond</h3>
+          <p>Tu écris sur WhatsApp et on te répond directement.</p>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="14" height="26" rx="3"/><path d="M14 24h4"/></svg>
+          <h3>Paiement Mobile Money</h3>
+          <p>Un montant clair, annoncé avant que tu paies. Pas de surprise.</p>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h14l5 5v19H7z"/><path d="M21 4v5h5M12 16h9M12 21h9"/></svg>
+          <h3>Programme de Terminale D</h3>
+          <p>Des contenus pensés pour le programme et pour l'examen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="contenus">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Ce que tu reçois</p>
+        <h2>Trois outils pour <span class="gold">comprendre</span>, pas pour réciter</h2>
+        <p class="lead">Chaque contenu est écrit avec des mots simples, pensé pour être compris dès la première lecture.</p>
+      </div>
+      <div class="contents">
+        <article class="content-card">
+          <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M10 5h18l8 8v26H10z"/><path d="M28 5v8h8"/><path d="M16 21h14M16 27h14M16 33h8"/></svg>
+          <h3>Fiches de révision</h3>
+          <p>Une page par notion, avec l'essentiel à retenir, des schémas et des exemples. Même si tu n'aimes pas les maths.</p>
+        </article>
+        <article class="content-card">
+          <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="6" y="6" width="32" height="32" rx="5"/><path d="M13 16h8M17 12v8M25 17h6M13 29h8M25 26l6 6M31 26l-6 6"/></svg>
+          <h3>Exercices corrigés</h3>
+          <p>Du plus simple au niveau examen. Chaque corrigé montre la méthode ligne par ligne pour que tu la refasses seul.</p>
+        </article>
+        <article class="content-card">
+          <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="5" y="9" width="34" height="26" rx="6"/><path d="M19 17l9 5-9 5z"/></svg>
+          <h3>Vidéos courtes</h3>
+          <p>De petits montages qui expliquent une méthode au tableau, étape par étape, avec des exemples concrets.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="programme">
+    <div class="wrap prog">
+      <div>
+        <p class="eyebrow">Premier lancement</p>
+        <h2>Mathématiques, <span class="gold">Terminale D</span></h2>
+        <p class="lead">Les chapitres sortent un par un. Le premier est offert pour que tu juges la méthode avant de payer quoi que ce soit.</p>
+        <p class="small-note">Contenus en préparation. L'ordre de publication est annoncé sur WhatsApp.</p>
+      </div>
+      <ul class="chap" aria-label="Chapitres prévus">
+        <li><span class="name">Limites et continuité</span><span class="pill pill-free">Gratuit</span></li>
+        <li><span class="name">Dérivée et dérivabilité</span><span class="pill pill-prem">Premium</span></li>
+        <li><span class="name">Fonction primitive</span><span class="pill pill-prem">Premium</span></li>
+        <li><span class="name">Fonction logarithme népérien</span><span class="pill pill-prem">Premium</span></li>
+        <li><span class="name">Fonction exponentielle</span><span class="pill pill-prem">Premium</span></li>
+        <li><span class="name">Calcul intégral</span><span class="pill pill-prem">Premium</span></li>
+        <li><span class="name">Suites numériques</span><span class="pill pill-prem">Premium</span></li>
+        <li><span class="name">Équations différentielles</span><span class="pill pill-prem">Premium</span></li>
+        <li><span class="name">Nombres complexes</span><span class="pill pill-prem">Premium</span></li>
+        <li><span class="name">Statistiques</span><span class="pill pill-prem">Premium</span></li>
+        <li><span class="name">Probabilités</span><span class="pill pill-prem">Premium</span></li>
+        <li><span class="name">Théorie des graphes</span><span class="pill pill-prem">Premium</span></li>
+        <li><span class="name">Étude d'une fonction</span><span class="pill pill-prem">Premium</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="offres">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Comment ça marche</p>
+        <h2>Du choix à ton téléphone en quatre étapes</h2>
+      </div>
+      <ol class="how">
+        <li><h3>Choisis</h3><p>Coche tes chapitres. Le total s'affiche en bas de l'écran avant que tu paies.</p></li>
+        <li><h3>Commande</h3><p>Tu confirmes ta commande, et on te la confirme sur WhatsApp.</p></li>
+        <li><h3>Paie</h3><p>Tu envoies le montant affiché par Mobile Money.</p></li>
+        <li><h3>Reçois</h3><p>Ton PDF ou ta vidéo t'est envoyé dès que le paiement est confirmé.</p></li>
+      </ol>
+
+      <div class="offers">
+        <article class="offer">
+          <p class="eyebrow">Pour commencer</p>
+          <h3>Échantillon gratuit</h3>
+          <p class="price">0 FCFA<small>Aucun paiement demandé</small></p>
+          <ul>
+            <li>Un chapitre complet, clairement expliqué</li>
+            <li>Des exercices et leurs corrigés</li>
+            <li>Une mini vidéo explicative</li>
+          </ul>
+          <a class="btn btn-line" data-wa="Bonjour, je veux l'échantillon gratuit de Maths Terminale D." data-track="offer-free" href="https://wa.me/" target="_blank" rel="noopener">Recevoir l'échantillon</a>
+        </article>
+        <article class="offer">
+          <p class="eyebrow">Accès premium</p>
+          <h3>Pack 1 chapitre</h3>
+          <p class="price">1 000 FCFA<small>Un chapitre au choix</small></p>
+          <ul>
+            <li>Un cours détaillé et une fiche récapitulative d'une page</li>
+            <li>Des exemples expliqués étape par étape</li>
+            <li>Une série d'exercices progressive et son corrigé</li>
+            <li>2 mini vidéos : le résumé du cours et un exercice résolu</li>
+          </ul>
+          <a class="btn btn-line" href="#chapitres" data-go="1" data-track="offer-1">Choisir mon chapitre</a>
+        </article>
+        <article class="offer offer-premium">
+          <p class="eyebrow" style="color: var(--gold)">Le plus choisi pour réviser</p>
+          <h3>Pack 3 chapitres</h3>
+          <p class="price">2 500 FCFA<small>Tu économises 500 FCFA par rapport à 3 achats séparés</small></p>
+          <ul>
+            <li>Trois chapitres complets</li>
+            <li>Cours, exemples, exercices corrigés et vidéos</li>
+            <li>Les erreurs fréquentes de chaque chapitre</li>
+          </ul>
+          <a class="btn btn-gold" href="#chapitres" data-go="3" data-track="offer-3">Choisir mes 3 chapitres</a>
+        </article>
+        <article class="offer">
+          <p class="eyebrow">Pour tout réviser</p>
+          <h3>Pack révisions complet</h3>
+          <p class="price">5 000 FCFA<small>Une matière, plusieurs chapitres</small></p>
+          <ul>
+            <li>Un ensemble organisé de plusieurs chapitres d'une même matière</li>
+            <li>Une fiche de synthèse</li>
+            <li>Les erreurs fréquentes de chaque chapitre</li>
+          </ul>
+          <a class="btn btn-line" href="#chapitres" data-go="full" data-track="offer-full">Prendre le pack complet</a>
+        </article>
+      </div>
+      <p class="bonus"><strong>Bonus inclus dans tous les packs premium :</strong> une présentation des erreurs fréquentes pour chaque chapitre, pour ne plus tomber dans les pièges de l'examen.</p>
+    </div>
+  </section>
+
+  <section class="section" id="temoignages">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Témoignages</p>
+        <h2>La parole aux premiers élèves</h2>
+        <p class="lead">Atelier Cortex Nova vient de se lancer. On ne publie que de vrais avis d'élèves, avec leur accord. Les premiers apparaîtront ici après les tests de l'échantillon gratuit.</p>
+      </div>
+      <div class="quotes">
+        <div class="quote">
+          <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M6 24v-8c0-5 3-9 8-10l1 3c-3 1-4 3-4 5h4v10zm13 0v-8c0-5 3-9 8-10l1 3c-3 1-4 3-4 5h4v10z"/></svg>
+          <p>Ici apparaîtra l'avis d'un élève de Terminale D qui a testé le premier chapitre.</p>
+          <span class="who">Avis à venir</span>
+        </div>
+        <div class="quote">
+          <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M6 24v-8c0-5 3-9 8-10l1 3c-3 1-4 3-4 5h4v10zm13 0v-8c0-5 3-9 8-10l1 3c-3 1-4 3-4 5h4v10z"/></svg>
+          <p>Ici apparaîtra le retour d'un parent ou d'un enseignant, avec son accord.</p>
+          <span class="who">Avis à venir</span>
+        </div>
+        <div class="quote">
+          <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M6 24v-8c0-5 3-9 8-10l1 3c-3 1-4 3-4 5h4v10zm13 0v-8c0-5 3-9 8-10l1 3c-3 1-4 3-4 5h4v10z"/></svg>
+          <p>Ici apparaîtra le message d'un élève qui dit : « Waouh, ce n'était pas si compliqué ! »</p>
+          <span class="who">Avis à venir</span>
+        </div>
+      </div>
+      <div class="promise">
+        <p><strong>Sois parmi les premiers.</strong> Teste l'échantillon gratuit, puis dis-nous franchement ce que tu en penses. Ton avis aide les autres élèves à choisir.</p>
+        <a class="btn btn-gold" data-wa="Bonjour, je veux tester l'échantillon gratuit et donner mon avis." data-track="avis-wa" href="https://wa.me/" target="_blank" rel="noopener">Tester et donner mon avis</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="faq">
+    <div class="wrap faq-grid">
+      <div>
+        <p class="eyebrow">Questions fréquentes</p>
+        <h2>Tu hésites ? Voici les réponses.</h2>
+        <p class="lead">Une autre question ? Écris-nous sur WhatsApp, on te répond.</p>
+        <div style="margin-top: 24px">
+          <a class="btn btn-line btn-sm" data-wa="Bonjour, j'ai une question avant de commencer." data-track="faq-wa" href="https://wa.me/" target="_blank" rel="noopener">Poser ma question</a>
+        </div>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Comment être sûr que ce n'est pas une arnaque ?</summary>
+          <p class="answer">Tu ne paies rien au départ. Tu reçois d'abord un chapitre complet gratuitement, tu juges la qualité, et tu discutes avec nous sur WhatsApp. Tu ne paies que si le contenu te convient.</p>
+        </details>
+        <details>
+          <summary>Comment est-ce que je paie ?</summary>
+          <p class="answer">Par Mobile Money. On te confirme d'abord le contenu et le montant sur WhatsApp, puis tu envoies la somme convenue.</p>
+        </details>
+        <details>
+          <summary>Quand est-ce que je reçois mon contenu ?</summary>
+          <p class="answer">Dès que ton paiement est confirmé, tu reçois ton PDF ou ta vidéo.</p>
+        </details>
+        <details>
+          <summary>Pour quelle classe sont les contenus ?</summary>
+          <p class="answer">Le lancement concerne les Mathématiques en Terminale D. La physique, la chimie et les SVT, puis la Première et les séries A et C arriveront ensuite.</p>
+        </details>
+        <details>
+          <summary>Et si je ne comprends pas un point ?</summary>
+          <p class="answer">Tu peux poser ta question directement sur WhatsApp. Les fiches sont écrites avec des mots simples et les corrigés détaillent chaque étape.</p>
+        </details>
+        <details>
+          <summary>Je peux lire les contenus sur mon téléphone ?</summary>
+          <p class="answer">Oui. Les fiches et les corrigés sont des PDF et les vidéos se regardent sur un téléphone, une tablette ou un ordinateur.</p>
+        </details>
+        <details>
+          <summary>Combien coûte l'accès premium ?</summary>
+          <p class="answer">Un chapitre coûte 1 000 FCFA. Trois chapitres coûtent 2 500 FCFA, soit 500 FCFA d'économie. Le pack de révisions complet coûte 5 000 FCFA. L'échantillon gratuit est à 0 FCFA.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="suite">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Et après ?</p>
+        <h2>On commence petit, on grandit avec vous</h2>
+      </div>
+      <div class="road">
+        <div class="stop now">
+          <p class="eyebrow">En cours</p>
+          <h3>Mathématiques, Terminale D</h3>
+          <p>Fiches, exercices corrigés et vidéos du programme.</p>
+        </div>
+        <div class="stop">
+          <p class="eyebrow">Ensuite</p>
+          <h3>Physique, chimie, SVT</h3>
+          <p>Les mêmes outils, matière par matière.</p>
+        </div>
+        <div class="stop">
+          <p class="eyebrow">Puis</p>
+          <h3>Première et autres séries</h3>
+          <p>Les classes de Première et de Terminale, séries A et C.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" style="padding-top: 0">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Prêt à comprendre tes maths ?</h2>
+          <p class="lead">Écris-nous sur WhatsApp. C'est là que tu choisis ton contenu, que tu poses tes questions et que tu reçois tes fiches et tes vidéos.</p>
+        </div>
+        <div class="contact-cta">
+          <a class="btn btn-white" data-wa="Bonjour Atelier Cortex Nova, j'ai une question." data-track="contact-wa" href="https://wa.me/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.5Z"/></svg>
+            Ouvrir WhatsApp
+          </a>
+          <span class="num">+237 653 73 27 06</span>
+          <p>Un message suffit pour démarrer la conversation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="view-chapitres" hidden>
+  <section class="section" style="padding-top: clamp(28px, 5vw, 56px)">
+    <div class="wrap">
+      <a class="back" href="#offres" data-track="chap-back">← Retour aux offres</a>
+      <div class="head" style="margin-top: 18px">
+        <p class="eyebrow">Maths · Terminale D</p>
+        <h2>Choisis tes <span class="gold">chapitres</span></h2>
+        <p class="lead">Coche les chapitres qui t'intéressent. Le total se calcule tout seul en bas de l'écran.</p>
+      </div>
+
+      <div class="tiers" aria-label="Tarifs">
+        <div class="tier"><b>1 chapitre</b><span>1 000 FCFA</span></div>
+        <div class="tier"><b>3 chapitres</b><span>2 500 FCFA</span></div>
+        <div class="tier tier-gold"><b>6 chapitres ou plus</b><span>5 000 FCFA, pack complet</span></div>
+      </div>
+      <p class="mode-hint" id="modeHint" aria-live="polite"></p>
+
+      <div class="chap-free">
+        <div class="chap-num">1</div>
+        <div class="chap-info"><b>Limites et continuité</b><small>Échantillon gratuit : cours, exercices, corrigés et vidéo.</small></div>
+        <a class="btn btn-line btn-sm" data-wa="Bonjour, je veux l'échantillon gratuit de Maths Terminale D." data-track="chap-free" href="https://wa.me/" target="_blank" rel="noopener">Recevoir gratuitement</a>
+      </div>
+
+      <div class="chap-tools">
+        <p class="eyebrow">Chapitres premium</p>
+        <div class="tools-btns">
+          <button type="button" class="link-btn" id="selAll" data-track="chap-all">Tout sélectionner</button>
+          <button type="button" class="link-btn" id="selNone" data-track="chap-none">Tout effacer</button>
+        </div>
+      </div>
+      <div class="chap-grid" id="chapGrid"></div>
+      <p class="small-note" id="pendingNote" hidden style="max-width: 70ch">Les chapitres marqués « Bientôt » te seront envoyés dès qu'ils sont prêts.</p>
+
+      <div class="afterpay" id="afterPay" hidden>
+        <p><strong>Une fois ton paiement effectué,</strong> envoie ta commande sur WhatsApp. On vérifie le paiement et on t'envoie tes fichiers.</p>
+        <a class="btn btn-gold" id="afterPayBtn" data-track="after-pay-wa" href="https://wa.me/" target="_blank" rel="noopener">J'ai payé : envoyer ma commande</a>
+      </div>
+
+      <p class="small-note" style="max-width: 70ch">Chaque chapitre contient 4 documents (fiche de cours détaillée, exercices progressifs, corrigés détaillés, fiche récapitulative d'une page) et 2 mini vidéos (le résumé du cours et un exercice résolu), avec la liste des erreurs fréquentes. Les chapitres marqués « Bientôt » sont livrés dès leur publication.</p>
+    </div>
+  </section>
+</main>
+
+<div class="orderbar" id="orderBar" hidden>
+  <div class="wrap orderbar-in">
+    <div class="ob-sum">
+      <span class="ob-count" id="obCount">Aucun chapitre choisi</span>
+      <span class="ob-total" id="obTotal">0 FCFA</span>
+      <span class="ob-tip" id="obTip" aria-live="polite"></span>
+    </div>
+    <a class="btn btn-gold" id="obPay" data-track="chap-order" href="#" target="_blank" rel="noopener" aria-disabled="true">Choisis un chapitre</a>
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="#accueil" aria-label="Retour en haut"><span class="brand-name">Atelier Cortex Nova<small>Éducation · Cameroun</small></span></a>
+    <nav aria-label="Pied de page">
+      <a href="#contenus">Contenus</a>
+      <a href="#programme">Programme</a>
+      <a href="#offres">Offres</a>
+      <a href="#temoignages">Témoignages</a>
+      <a href="#faq">Questions</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <small>© 2026 Atelier Cortex Nova</small>
+  </div>
+</footer>
+
+<a id="floatWa" class="float-wa" data-wa="Bonjour Atelier Cortex Nova, je voudrais des informations." data-track="wa-float" href="https://wa.me/" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.5Z"/></svg>
+</a>
+
+<script>
+  // Numéro WhatsApp Business (format international, sans + ni espaces).
+  var WA_NUMBER = "237653732706";
+
+  document.querySelectorAll("[data-wa]").forEach(function (a) {
+    a.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(a.getAttribute("data-wa"));
+  });
+
+  // Suivi des clics : prépare les statistiques (visites, clics, conversions).
+  window.cortexEvents = window.cortexEvents || [];
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest("[data-track]");
+    if (el) window.cortexEvents.push({ name: el.getAttribute("data-track"), t: Date.now() });
+  });
+
+  // Menu mobile
+  (function () {
+    var btn = document.getElementById("menuBtn");
+    var drawer = document.getElementById("drawer");
+    function set(open) {
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+      drawer.hidden = !open;
+    }
+    btn.addEventListener("click", function () { set(drawer.hidden); });
+    drawer.addEventListener("click", function (e) { if (e.target.closest("a")) set(false); });
+  })();
+
+  // Exercice d'essai
+  (function () {
+    var steps = Array.prototype.slice.call(document.querySelectorAll("#steps .step"));
+    var result = document.getElementById("result");
+    var next = document.getElementById("next");
+    var reset = document.getElementById("reset");
+    var progress = document.getElementById("progress");
+    var n = 1;
+    function render() {
+      steps.forEach(function (s, i) { s.hidden = i >= n; });
+      var done = n >= steps.length;
+      result.hidden = !done;
+      next.hidden = done;
+      reset.hidden = !done;
+      progress.textContent = done ? "Terminé" : "Étape " + n + " sur " + steps.length;
+    }
+    next.addEventListener("click", function () { if (n < steps.length) { n++; render(); } });
+    reset.addEventListener("click", function () { n = 1; render(); });
+    render();
+  })();
+
+  // ===== Page des chapitres : choix, total, commande =====
+  (function () {
+    var CHAPS = [
+      { n: 2, t: "Dérivée et dérivabilité", d: "Nombre dérivé, tangente, fonction dérivée, convexité.", ready: true },
+      { n: 3, t: "Fonction primitive", d: "Primitives, formules usuelles, retrouver une fonction à partir de sa dérivée.", ready: true },
+      { n: 4, t: "Fonction logarithme népérien", d: "Logarithme népérien, propriétés, équations et limites.", ready: true },
+      { n: 5, t: "Fonction exponentielle", d: "Exponentielle, propriétés, limites et équations.", ready: true },
+      { n: 6, t: "Calcul intégral", d: "Intégrale, aires, techniques de calcul.", ready: false },
+      { n: 7, t: "Suites numériques", d: "Suites arithmétiques et géométriques, convergence.", ready: false },
+      { n: 8, t: "Équations différentielles", d: "Résoudre des équations différentielles simples.", ready: false },
+      { n: 9, t: "Nombres complexes", d: "Forme algébrique, module, argument.", ready: false },
+      { n: 10, t: "Statistiques", d: "Séries statistiques et indicateurs.", ready: false },
+      { n: 11, t: "Probabilités", d: "Dénombrement, probabilités, variables aléatoires.", ready: false },
+      { n: 12, t: "Théorie des graphes", d: "Graphes, parcours et applications.", ready: false },
+      { n: 13, t: "Étude d'une fonction", d: "Variations, convexité, point d'inflexion et courbe.", ready: false }
+    ];
+    var P1 = 1000, P3 = 2500, PFULL = 5000;
+    var PRICES = [0, 1000, 2000, 2500, 3000, 4000];
+    function price(n) { if (!n) return 0; return n >= 6 ? PFULL : PRICES[n]; }
+    function fmt(v) { return String(v).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " FCFA"; }
+    function $(id) { return document.getElementById(id); }
+
+    var home = $("view-home"), view = $("view-chapitres"), bar = $("orderBar"), fl = $("floatWa");
+    var grid = $("chapGrid"), hint = $("modeHint"), sel = {};
+
+    CHAPS.forEach(function (c) {
+      var l = document.createElement("label");
+      l.className = "cc"; l.setAttribute("data-n", c.n);
+      l.innerHTML = '<input type="checkbox" value="' + c.n + '" id="ch' + c.n + '"><span class="box" aria-hidden="true"></span>' +
+        '<span class="info"><b>' + c.n + ". " + c.t + "</b><small>" + c.d + '</small></span><span class="st' + (c.ready ? " ok" : "") + '">' + (c.ready ? "Disponible" : "Bientôt") + "</span>";
+      l.querySelector("input").addEventListener("change", function (e) { sel[c.n] = e.target.checked; render(); });
+      grid.appendChild(l);
+    });
+
+    function count() { return CHAPS.filter(function (c) { return sel[c.n]; }).length; }
+
+    function render() {
+      var n = count(), total = price(n), plain = n * P1, full = n >= 6;
+      CHAPS.forEach(function (c) {
+        var el = grid.querySelector('[data-n="' + c.n + '"]');
+        el.classList.toggle("sel", !!sel[c.n]);
+        el.querySelector("input").checked = !!sel[c.n];
+      });
+      $("obTotal").textContent = fmt(total);
+      $("obCount").textContent = n === 0 ? "Aucun chapitre choisi" : (full ? "Pack complet : tous les chapitres" : n + (n > 1 ? " chapitres choisis" : " chapitre choisi"));
+      var tip = "";
+      if (n === 0) tip = "";
+      else if (full) tip = "Tarif pack complet : tu économises " + fmt(plain - total) + " et tu reçois tout.";
+      else if (n === 2) tip = "Ajoute 1 chapitre : 3 chapitres pour " + fmt(P3) + ".";
+      else if (n === 5) tip = "Ajoute 1 chapitre : pack complet à " + fmt(PFULL) + ", tous les chapitres inclus.";
+      else if (plain > total) tip = "Tu économises " + fmt(plain - total) + ".";
+      var pending = CHAPS.filter(function (c) { return sel[c.n] && !c.ready; }).length;
+      $("pendingNote").hidden = !pending;
+      $("obTip").textContent = tip;
+      var b = $("obPay");
+      b.setAttribute("aria-disabled", n === 0 ? "true" : "false");
+      b.setAttribute("href", n === 0 ? "#" : orderLink());
+      b.textContent = n === 0 ? "Choisis un chapitre" : "Commander";
+    }
+
+    function setAll(v) { CHAPS.forEach(function (c) { sel[c.n] = v; }); render(); }
+    $("selAll").addEventListener("click", function () { setAll(true); });
+    $("selNone").addEventListener("click", function () { setAll(false); });
+
+    function applyMode(m) {
+      var t = "";
+      if (m === "1") t = "Offre 1 chapitre : coche le chapitre de ton choix, " + fmt(P1) + ".";
+      else if (m === "3") t = "Offre 3 chapitres : coche-en 3, tu paies " + fmt(P3) + " au lieu de 3 000 FCFA.";
+      else if (m === "full") { t = "Pack complet : tous les chapitres, " + fmt(PFULL) + "."; setAll(true); }
+      hint.textContent = t;
+    }
+
+    function show(name, mode) {
+      var c = name === "chapitres";
+      home.hidden = c; view.hidden = !c; bar.hidden = !c; fl.hidden = c;
+      if (c) applyMode(mode);
+      window.scrollTo(0, 0);
+    }
+
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      var h = a.getAttribute("href").slice(1);
+      if (h === "chapitres") { e.preventDefault(); show("chapitres", a.getAttribute("data-go")); return; }
+      if (home.hidden && h) {
+        e.preventDefault(); show("home");
+        var el = document.getElementById(h);
+        if (el) setTimeout(function () { el.scrollIntoView(); }, 30);
+      }
+    });
+
+    // Commande. Aujourd'hui : message WhatsApp prérempli. Plus tard : paiement Mobile Money automatique.
+    var REF = "ACN-" + Date.now().toString(36).toUpperCase().slice(-5);
+    function orderLink() {
+      var n = count(), total = price(n), full = n >= 6;
+      var list = full ? "PACK COMPLET (tous les chapitres de Maths Terminale D)"
+        : CHAPS.filter(function (c) { return sel[c.n]; }).map(function (c) { return "- " + c.n + ". " + c.t; }).join("\n");
+      var msg = "Bonjour Atelier Cortex Nova, je souhaite commander (réf. " + REF + ") :\n" + list + "\nTotal : " + fmt(total) + "\nMerci de me confirmer le paiement Mobile Money.";
+      return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+    }
+    // Liens de paiement (un par montant possible). À remplir avec les liens Fapshi ; vide = commande WhatsApp.
+    var PAY_LINKS = { 1000: "https://buy.fapshi.com/s1tqv8", 2000: "https://buy.fapshi.com/h6p02m", 2500: "https://buy.fapshi.com/b50zig", 3000: "https://buy.fapshi.com/98k9ks", 4000: "https://buy.fapshi.com/67yz8z", 5000: "https://buy.fapshi.com/gb7p4a" };
+    $("obPay").addEventListener("click", function (e) {
+      var n = count();
+      if (!n) { e.preventDefault(); return; }
+      var total = price(n), link = PAY_LINKS[total];
+      window.cortexEvents.push({ name: "order-click", t: Date.now(), chapters: n, total: total, mode: link ? "pay-link" : "whatsapp" });
+      if (link) {
+        e.preventDefault();
+        window.open(link, "_blank", "noopener");
+        $("afterPayBtn").setAttribute("href", orderLink());
+        $("afterPay").hidden = false;
+        $("afterPay").scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
+
+    render();
+    if (location.hash === "#chapitres") show("chapitres");
+  })();
+</script>
+
+</body></html>
